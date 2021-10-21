@@ -1,0 +1,56 @@
+{
+  "name": "Tokisaki Kurumi",
+  "description": "A Telegram Chat bot made using Pyrogram and Python",
+  "repository": "https://github.com/zYxDevs/KurumiChatBot",
+  "logo": "https://telegra.ph/file/538b1bdf2dc409db74f02.jpg",
+  "keywords": [
+    "python3",
+    "telegram",
+    "bot",
+    "telegram-chat-bot",
+    "python",
+    "ai-bot",
+    "telegram-ai-bot",
+    "telegram-bot",
+    "pyrogram",
+    "arq"
+  ],
+  "stack": "heroku-20",
+  "env": {
+    "TOKEN": {
+           "description": "Your Bot's Api Token ,Get it from @BotFather",
+           "required": true
+    },
+    "ARQ_API_KEY": {
+           "description": "Get this from @ARQRobot",
+           "required": true
+    },
+    "LANGUAGE": {
+           "description": "Language of Chat Bot ,list --> https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages",
+           "value": "en",
+           "required": true
+    },
+    "ARQ_API_BASE_URL": {
+           "description": "ARQ URL ,Don't Change It",
+           "value": "https://thearq.tech",
+           "required": true
+    },
+    "API_ID": {
+           "description": "Your api id, get this from https://my.telegram.org",
+           "required": true
+    },
+    "HASH": {
+           "description": "Your api hash, get from https://my.telegram.org",
+           "required": true
+    },
+    "BOT_ID": {
+           "description": "Your bot id",
+           "required": true
+    }
+  },
+  "buildpacks": [
+   {
+    "url": "heroku/python"
+   }
+  ]
+}
