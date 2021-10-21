@@ -12,15 +12,16 @@ A public running instance can be found on telegram as [@TokisakiChatBot](https:/
 
 
 ## Local Deploy
-```
-Can't for now!!, Later i will make able to deploy on local/vps!!
-```
+
 1. `git clone https://github.com/zYxDevs/KurumiChatBot`
 2. `cd KurumiChatBot`
 3. `pip3 install -r requirements.txt` to install the requirements.
 4. Edit `sample_config.py` to `config.py` with your own values.!
 5. Run with `python3.9 Kurumi.py`
 
+```
+Can't for now!!, Later i will make able to deploy on local/vps!!
+```
 
 ## Command List
 - `/start` - Check kurumi is alive or not
