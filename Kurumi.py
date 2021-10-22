@@ -1,4 +1,4 @@
-print("[KURUMI]: INITIALIZING ...")
+print("[KURUMI]: Checking System ...")
 import re
 import random
 from os import path
@@ -9,7 +9,10 @@ from pyrogram import (Client, filters, idle)
 from Python_ARQ import ARQ
 from os import environ
 
+print("[KURUMI]: Initializing Config Vars ...")
 bot_token = str(environ.get("TOKEN", None))
+B_UNAME = str(environ.get("BOT_USERNAME", None))
+CHARA_NAME = str(environ.get("BOT_NAME", None))
 ARQ_API_KEY = str(environ.get("ARQ_API_KEY", None))
 LANGUAGE = str(environ.get("LANGUAGE", "en"))
 bot_id = int(environ.get("BOT_ID", None))
@@ -17,7 +20,7 @@ api_id = int(environ.get("API_ID"))
 api_hash = str(environ.get("HASH", None))
 ARQ_API_BASE_URL = str(environ.get("ARQ_API_BASE_URL", "https://thearq.tech"))
 
-print("[KURUMI]: INITIALIZING BOT CLIENT ...")
+print("[KURUMI]: Initializing Bot Client ...")
 luna = Client(":memory:",
               bot_token=bot_token,
               api_id=api_id,
@@ -84,11 +87,11 @@ async def type_and_send(message):
     await message._client.send_chat_action(chat_id, "typing")
     response, _ = await gather(lunaQuery(query, user_id), sleep(2))
     if "Luna" in response:
-        respa = response.replace("Luna", "Kurumi")
+        respa = response.replace("Luna", f"{CHARA_NAME}")
     else:
         respa = response
     if "Aco" in respa:
-        respb = respa.replace("Aco", "Kurumi")
+        respb = respa.replace("Aco", f"{CHARA_NAME}")
     else:
         respb = respa
     await message.reply_text(respb)
@@ -111,7 +114,7 @@ async def start(_, message):
     await sleep(2)
     await message.reply_text(HELP)
 
-@luna.on_message(filters.command(["about", "about@TokisakiChatBot"]) & ~filters.edited)
+@luna.on_message(filters.command(["about", f"about@{B_UNAME}"]) & ~filters.edited)
 async def start(_, message):
     await luna.send_chat_action(message.chat.id, "typing")
     await sleep(2)
@@ -120,7 +123,7 @@ async def start(_, message):
 @luna.on_message(
     ~filters.private
     & filters.text
-    & ~filters.command(["start", "start@TokisakiChatBot"])
+    & ~filters.command(["start", f"start@{B_UNAME}"])
     & ~filters.edited,
     group=69,
 )
@@ -133,7 +136,7 @@ async def chat(_, message):
             return
     else:
         match = re.search(
-            "[.|\n]{0,}kurumi[.|\n]{0,}",
+            f"[.|\n]{0,}{CHARA_NAME}[.|\n]{0,}",
             message.text.strip(),
             flags=re.IGNORECASE,
         )
@@ -144,7 +147,7 @@ async def chat(_, message):
 
 @luna.on_message(
     filters.private
-    & ~filters.command(["start", "start@TokisakiChatBot"])
+    & ~filters.command(["start", f"start@{B_UNAME}"])
     & ~filters.edited
 )
 async def chatpm(_, message):
@@ -154,7 +157,7 @@ async def chatpm(_, message):
     await type_and_send(message)
 
 
-@luna.on_message(filters.command(["start", "start@TokisakiChatBot"]) & ~filters.edited)
+@luna.on_message(filters.command(["start", f"start@{B_UNAME}"]) & ~filters.edited)
 async def startt(_, message):
     rand = random.choice(RTEXT)
     await message.reply_text(rand)
@@ -163,17 +166,17 @@ async def startt(_, message):
 async def main():
     global arq
     session = ClientSession()
-    print("[KURUMI] INITIALIZING ARQ CLIENT ...")
+    print("[KURUMI] Initializing Arq Client ...")
     arq = ARQ(ARQ_API_BASE_URL, ARQ_API_KEY, session)
 
     await luna.start()
     print(
         """
--------------------
-| Kurumi Started! |
--------------------
-| By Yoga Pranata |
--------------------
+--------------------
+| Chatbot Started! |
+--------------------
+|   Yoga Pranata   |
+--------------------
 """
     )
     await idle()
