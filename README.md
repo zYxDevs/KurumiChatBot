@@ -31,7 +31,7 @@ Can't for now!!, Later i will make able to deploy on local/vps!!
 
 
 ## TODO
-- Add Indonesian Language
+- Add More Features
 - Add Button
 
 
