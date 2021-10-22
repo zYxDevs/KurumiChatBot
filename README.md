@@ -3,7 +3,7 @@ Just another Telegram AI chat bot written in Python using Pyrogram.
 
 A public running instance can be found on telegram as [@TokisakiChatBot](https://t.me/TokisakiChatBot).
 
-<img src="https://telegra.ph/file/fe8a4a0b81b82ded8ca7b.jpg" width="200" align="right">
+<a href="https://t.me/TokisakiChatBot"><img src="https://telegra.ph/file/fe8a4a0b81b82ded8ca7b.jpg" width="200" align="right" alt="Kurumi on Telegram" /></a>
 
 ## Requirements
 
