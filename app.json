@@ -46,6 +46,14 @@
     "BOT_ID": {
            "description": "Your bot id",
            "required": true
+    },
+    "BOT_USERNAME": {
+           "description": "Username of your bot",
+           "required": true
+    },
+    "BOT_NAME": {
+           "description": "Name of your bot.",
+           "required": true
     }
   },
   "buildpacks": [
