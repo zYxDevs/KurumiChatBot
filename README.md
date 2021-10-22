@@ -27,7 +27,7 @@ Can't for now!!, Later i will make able to deploy on local/vps!!
 - `/start` - Check kurumi is alive or not
 - `/help` - See help menu
 - `/about` - See about this bot
-- `/repo` - Get git repository link
+- `/repo` - Get kurumi repository link
 
 
 ## TODO
