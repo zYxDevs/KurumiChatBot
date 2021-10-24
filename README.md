@@ -1,4 +1,5 @@
 # KurumiChatBot
+<a href="https://www.codefactor.io/repository/github/zyxdevs/kurumichatbot"><img src="https://www.codefactor.io/repository/github/zyxdevs/kurumichatbot/badge" alt="CodeFactor" /></a><br>
 Just another Telegram AI chat bot written in Python using Pyrogram.
 
 A public running instance can be found on telegram as [@TokisakiChatBot](https://t.me/TokisakiChatBot).
