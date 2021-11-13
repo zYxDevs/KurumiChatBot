@@ -39,6 +39,9 @@ Can't for now!!, Later i will make able to deploy on local/vps!!
 ## Heroku User
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/zYxDevs/KurumiChatBot)
 
+## Railway User
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FzYxDevs%2FKurumiChatBot&envs=TOKEN%2CARQ_API_KEY%2CLANGUAGE%2CARQ_API_BASE_URL%2CAPI_ID%2CHASH%2CBOT_ID%2CBOT_NAME%2CBOT_USERNAME&optionalEnvs=LANGUAGE&TOKENDesc=Your+Bot%27s+Api+Token+%2CGet+it+from+%40BotFather&ARQ_API_KEYDesc=Get+this+from+%40ARQRobot&LANGUAGEDesc=Language+of+Chat+Bot%2C+list+--%3E+https%3A%2F%2Fpy-googletrans.readthedocs.io%2Fen%2Flatest%2F%23googletrans-languages&ARQ_API_BASE_URLDesc=ARQ+URL+%2CDon%27t+Change+It+https%3A%2F%2Fthearq.tech&API_IDDesc=Your+api+id%2C+get+this+from+https%3A%2F%2Fmy.telegram.org&HASHDesc=Your+api+hash+get+this+from+https%3A%2F%2Fmy.telegram.org&BOT_IDDesc=Your+Bot+ID&BOT_NAMEDesc=Your+Bot+Name&BOT_USERNAMEDesc=Your+Bor+Username+%28Without+%40%29&ARQ_API_BASE_URLDefault=ARQ+URL+%2CDon%27t+Change+It+https%3A%2F%2Fthearq.tech&referralCode=AsunaRobot)
+
 ## Credits
 [Yoga Pranata](https://t.me/Yoga_CIC)<br>
 [TheHamkerCat](https://github.com/TheHamkerCat)<br>
