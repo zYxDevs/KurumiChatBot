@@ -1,12 +1,12 @@
 print("[KURUMI]: Checking System ...")
 import re
 import random
+
 from os import path
 from asyncio import (gather, get_event_loop, sleep)
-
 from aiohttp import ClientSession
 from pyrogram import (Client, filters, idle)
-from Python_ARQ import ARQ
+from Python_ARQ import ARQ, RateLimitExceeded
 from os import environ
 
 print("[KURUMI]: Initializing Config Vars ...")
@@ -21,10 +21,11 @@ api_hash = str(environ.get("HASH", None))
 ARQ_API_BASE_URL = str(environ.get("ARQ_API_BASE_URL", "https://thearq.tech"))
 
 print("[KURUMI]: Initializing Bot Client ...")
-luna = Client(":memory:",
-              bot_token=bot_token,
-              api_id=api_id,
-              api_hash=api_hash,
+luna = Client(
+    ":memory:",
+    bot_token=bot_token,
+    api_id=api_id,
+    api_hash=api_hash,
 )
 arq = None
 
@@ -48,36 +49,49 @@ See List of My Other Brother/Sisters on @SpreadNetworks
 Built with ❤ and Pyrogram.
 """
 
-RTEXT = ["I've started...",
-         "Ohayou oniichan>///<",
-         "What are u doin'?",
-         "Sup?",
-         "Now what?",
-         "How are you?",
-         "Kono hentai! -_-",
-         "Dameee! *run away",
-         "B-baka>///<",
-         "You see my cat?",
-         "My darling is @Yoga_CIC",
-         "FBI Open Up!!",
-         "My money, someone stolen my money 😢",
-         "Are you lolicon?"
-        ]
+RTEXT = [
+    "I've started...",
+    "Ohayou oniichan>///<",
+    "What are u doin'?",
+    "Sup?",
+    "Now what?",
+    "How are you?",
+    "Kono hentai! -_-",
+    "Dameee! *run away",
+    "B-baka>///<",
+    "You see my cat?",
+    "My darling is @Yoga_CIC",
+    "FBI Open Up!!",
+    "My money, someone stolen my money 😢",
+    "Are you lolicon?",
+]
 
 async def lunaQuery(query: str, user_id: int):
-    query = (
-        query
-        if LANGUAGE == "en"
-        else (await arq.translate(query, "en")).result.translatedText
-    )
-    resp = (await arq.luna(query, user_id)).result
-    return (
-        resp
-        if LANGUAGE == "en"
-        else (
-            await arq.translate(resp, LANGUAGE)
-        ).result.translatedText
-    )
+    if LANGUAGE == "en":
+        query = query
+    else:
+        try:
+            query = await arq.translate(query, "en")
+        except RateLimitExceeded:
+            time.sleep(13)
+            query = await arq.translate(query, "en")
+        query = query.result.translatedText
+    try:
+        resp = await arq.luna(query, user_id)
+    except RateLimitExceeded:
+        time.sleep(13)
+        resp = await arq.luna(query, user_id)
+    resp = resp.result
+    if LANGUAGE == "en":
+        resp = resp
+    else:
+        try:
+            resp = await arq.translate(resp, LANGUAGE)
+        except RateLimitExceeded:
+            time.sleep(13)
+            resp = await arq.translate(resp, LANGUAGE)
+        resp = resp.result.translatedText
+    return resp
 
 
 async def type_and_send(message):
