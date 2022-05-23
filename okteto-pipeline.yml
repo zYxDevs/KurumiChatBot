@@ -1,0 +1,3 @@
+icon: https://raw.githubusercontent.com/CyberID-Ltd/zYxDevs-Profile-Requirements/main/site/android-chrome-192x192.png
+deploy:
+    - okteto stack deploy --build -f docker-compose.yml
