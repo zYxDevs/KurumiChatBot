@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  worker:
+    build: .
+    environment:
+      TOKEN: $TOKEN
+      ARQ_API_KEY: $ARQ_API_KEY  # defaults to None
+      ARQ_API_BASE_URL: $ARQ_API_BASE_URL
+      LANGUAGE: $LANGUAGE
+      API_ID: $API_ID  # defaults to None
+      HASH: $HASH  # defaults to None
+      BOT_ID: $BOT_ID  # defaults to None
