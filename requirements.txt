@@ -1,4 +1,4 @@
-pyrogram
+pyrogram==1.*
 python-arq
 TgCrypto
 python-dotenv
